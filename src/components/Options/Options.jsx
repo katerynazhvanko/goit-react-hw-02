@@ -1,12 +1,12 @@
 import css from "./Options.module.css";
 
-export const Options = () => {
+export default function Options({ onClick, children }) {
   return (
     <div className={css.box}>
-      <button>Good</button>
-      <button>Neutral</button>
+      <button onClick={onClick}>{children}</button>
+      {/* <button>Neutral</button>
       <button>Bad</button>
-      <button>Reset</button>
+      <button>Reset</button> */}
     </div>
   );
-};
+}
