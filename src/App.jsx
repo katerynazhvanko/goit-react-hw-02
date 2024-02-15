@@ -18,17 +18,30 @@ export default function App() {
       [feedbackType]: clicks[feedbackType] + 1,
     });
   };
+
+  const resetFeedback = () => {
+    setClicks({
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    });
+  };
+
   const totalFeedback = clicks.good + clicks.bad + clicks.neutral;
+
   const positiveFeedback = Math.round(
     ((clicks.good + clicks.neutral) / totalFeedback) * 100
   );
+
   return (
     <>
       <Descriptions />
       <Options onClick={() => updateFeedback("good")}>Good</Options>
       <Options onClick={() => updateFeedback("neutral")}>Neutral</Options>
       <Options onClick={() => updateFeedback("bad")}>Bad</Options>
-      <Options>Reset</Options>
+      {totalFeedback != 0 && (
+        <Options onClick={() => resetFeedback()}>Reset</Options>
+      )}
       {totalFeedback === 0 ? (
         <Notification />
       ) : (
