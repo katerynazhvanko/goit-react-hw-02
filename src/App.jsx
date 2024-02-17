@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Descriptions from "./components/Description/Description";
 import Options from "./components/Options/Options";
@@ -36,12 +36,11 @@ export default function App() {
   return (
     <>
       <Descriptions />
-      <Options onClick={() => updateFeedback("good")}>Good</Options>
-      <Options onClick={() => updateFeedback("neutral")}>Neutral</Options>
-      <Options onClick={() => updateFeedback("bad")}>Bad</Options>
-      {totalFeedback != 0 && (
-        <Options onClick={() => resetFeedback()}>Reset</Options>
-      )}
+      <Options
+        updateFeedback={updateFeedback}
+        resetFeedback={resetFeedback}
+        totalFeedback={totalFeedback}
+      />
       {totalFeedback === 0 ? (
         <Notification />
       ) : (
