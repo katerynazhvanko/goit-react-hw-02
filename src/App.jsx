@@ -5,12 +5,20 @@ import Options from "./components/Options/Options";
 import Feedback from "./components/Feedback/Feedback";
 import Notification from "./components/Notification";
 
+const getInitialClicks = () => {
+  const savedClicks = window.localStorage.getItem("clicks");
+
+  return savedClicks !== null
+    ? JSON.parse(savedClicks)
+    : { good: 0, neutral: 0, bad: 0 };
+};
+
 export default function App() {
-  const [clicks, setClicks] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  });
+  const [clicks, setClicks] = useState(getInitialClicks);
+
+  useEffect(() => {
+    window.localStorage.setItem("clicks", JSON.stringify(clicks));
+  }, [clicks]);
 
   const updateFeedback = (feedbackType) => {
     setClicks({
