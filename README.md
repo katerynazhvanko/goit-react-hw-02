@@ -1,8 +1,5 @@
-# React + Vite
+# React + Vite = Homework 2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+It's a platform where you can count an amount of all responses about Cafe. It's have 3 buttons with 'good', 'neutral' and 'bad' responses and also there is a statistic - 'Total' - which counts how many times guests press buttons and also it counts a positive % af all responses. 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I used an useState and UseEffect hook for realize this service. 
